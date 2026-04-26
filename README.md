@@ -1,25 +1,36 @@
 # Task Management System
 
-A production-ready full-stack task management application.
+A production-ready full-stack task management application with Role-Based Access Control (Admin/User) and JWT authentication.
+
+## Tech Stack
+
+**Frontend:**
+- React (Vite)
+- React Router DOM
+- Axios for API requests
+- Standard CSS / Flexbox
+
+**Backend:**
+- Java 17
+- Spring Boot 3.2.5
+- Spring Security (JWT Authentication)
+- Spring Data JPA
+- H2 Database (File-based persistence)
+- Maven Build Tool
 
 ## Prerequisites
 - Java 17+
 - Node.js 18+ & npm
-- MySQL 8.0+
 
 ## Setup Instructions
 
 ### 1. Database Setup
-Run the following SQL in your MySQL client:
-```sql
-CREATE DATABASE task_management;
-```
-The tables will be automatically created by Hibernate.
+The application uses an **H2 File-based Database**. You do not need to install MySQL. 
+The database file will be automatically created in the `backend/data/` folder when the backend starts.
 
 ### 2. Backend Setup
 1. Open the `backend` folder in VS Code.
-2. Update `src/main/resources/application.properties` with your MySQL `root` password.
-3. Run the application (using Maven or VS Code Java Extension):
+2. Run the Spring Boot application (using Maven or VS Code Java Extension):
    ```bash
    mvn spring-boot:run
    ```
@@ -44,5 +55,6 @@ The tables will be automatically created by Hibernate.
 - **DELETE** `/api/tasks/{id}`: Delete a task.
 
 ## Running Locally
-- Backend: http://localhost:8080
-- Frontend: http://localhost:5173
+- Backend API: http://localhost:8081
+- H2 Database Console: http://localhost:8081/h2-console
+- Frontend App: http://localhost:5174 (or 5173 depending on Vite)
