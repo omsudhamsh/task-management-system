@@ -1,0 +1,20 @@
+CREATE DATABASE IF NOT EXISTS task_management;
+
+USE task_management;
+
+CREATE TABLE users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('ADMIN', 'USER') NOT NULL
+);
+
+CREATE TABLE tasks (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    description TEXT,
+    status ENUM('PENDING', 'IN_PROGRESS', 'COMPLETED') DEFAULT 'PENDING',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    user_id BIGINT,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

@@ -1,0 +1,16 @@
+# Frontend / Node
+frontend/node_modules/
+frontend/dist/
+.DS_Store
+
+# Backend / Java
+backend/target/
+*.class
+
+# Local Database
+backend/data/
+
+# IDEs
+.idea/
+*.iml
+.vscode/
